@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <title>JPA Application - Edit Form</title>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: lime;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 5px;
+            box-shadow: none;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Edit Student Information</h1>
+
+    <form th:action="@{/emp/edit}" method="post" th:object="${std}">
+        <!-- Student ID (read-only) -->
+        <div class="form-group">
+            <label class="col-form-label">Student ID</label>
+            <input type="text" th:field="*{id}" readonly="true" class="form-control"/>
+        </div>
+
+        <!-- Student Name -->
+        <div class="form-group">
+            <label class="col-form-label">Student Name</label>
+            <input th:field="*{name}" type="text" class="form-control"/>
+        </div>
+
+        <!-- Department Name -->
+        <div class="form-group">
+            <label class="col-form-label">Department Name</label>
+            <input th:field="*{dept}" type="text" class="form-control"/>
+        </div>
+
+        <!-- Fees -->
+        <div class="form-group">
+            <label class="col-form-label">Fees</label>
+            <input type="text" th:field="*{fees}" class="form-control"/>
+        </div>
+
+        <!-- Percentage -->
+        <div class="form-group">
+            <label class="col-form-label">Percentage</label>
+            <input type="text" th:field="*{percentage}" class="form-control"/>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-custom mt-4">Edit</button>
+        </div>
+    </form>
+</div>
+
+<!-- Bootstrap JS (optional, for other functionalities) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIKb+1klmje2bGZlSg3mVn59P4xV4zvLqzF8m8l9XM9DCCd0wJqS5" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQLe3F5pJkFw8eGfXnAldvTt4JbZZQ6VV8w4VG" crossorigin="anonymous"></script>
+
+</body>
+</html>

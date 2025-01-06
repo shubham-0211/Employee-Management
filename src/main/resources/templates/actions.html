@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        table td a {
+            margin: 0 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        table td a:hover {
+            text-decoration: underline;
+        }
+        .no-records {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .home-link {
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        .home-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Registered Student Details</h1>
+</header>
+
+<div class="container">
+    <a href="#" th:href="@{/emp/}" class="home-link">Home</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Std_ID</th>
+                <th>Std_Name</th>
+                <th>Department_Name</th>
+                <th>College_Fees</th>
+                <th>Std_Percentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${studs == null}">
+                <td colspan="6" class="no-records">No Records Found</td>
+            </tr>
+            <tr th:each="std : ${studs}">
+                <td th:text="${std.id}"></td>
+                <td th:text="${std.name}"></td>
+                <td th:text="${std.dept}"></td>
+                <td th:text="${std.fees}"></td>
+                <td th:text="${std.percentage}"></td>
+                <td>
+                    <a th:href="@{/emp/delete(sno=${std.id})}">Delete</a>
+                    <a th:href="@{/emp/edit(sno=${std.id})}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

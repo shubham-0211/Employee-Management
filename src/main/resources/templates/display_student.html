@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <title>Display Registered Student Details</title>
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 36px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        table {
+            margin-top: 30px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td {
+            text-align: center;
+            padding: 12px;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #e9ecef;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .btn-home {
+            margin-top: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Home Button -->
+    <a th:href="@{/emp/}" class="btn-home">Home</a>
+
+    <!-- Title -->
+    <h1>Registered Student Details</h1>
+
+    <!-- Student Table -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Std_ID</th>
+                <th>Std_Name</th>
+                <th>Department_Name</th>
+                <th>College_Fees</th>
+                <th>Std_Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Check if 'studs' is empty -->
+            <tr th:if="${studs == null}">
+                <td colspan="5">
+                    <center>No Records Found</center>
+                </td>
+            </tr>
+
+            <!-- Loop through 'studs' and display data -->
+            <tr th:each="std : ${studs}">
+                <td><span th:text="${std.id}"></span></td>
+                <td><span th:text="${std.name}"></span></td>
+                <td><span th:text="${std.dept}"></span></td>
+                <td><span th:text="${std.fees}"></span></td>
+                <td><span th:text="${std.percentage}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS (optional, for other functionalities) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIKb+1klmje2bGZlSg3mVn59P4xV4zvLqzF8m8l9XM9DCCd0wJqS5" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQLe3F5pJkFw8eGfXnAldvTt4JbZZQ6VV8w4VG" crossorigin="anonymous"></script>
+
+</body>
+</html>
