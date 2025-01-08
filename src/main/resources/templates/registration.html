@@ -11,43 +11,102 @@
 
     <style>
         body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            font-family: 'Arial', sans-serif;
+            color: #333;
         }
+
         .container {
-            max-width: 700px;
-            margin-top: 50px;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
         }
+
         h1 {
-            color: lime;
-            font-size: 35px;
+            color: #007bff;
+            font-size: 36px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-weight: 700;
         }
+
         .form-group label {
             font-weight: bold;
+            color: #333;
         }
+
         .form-control {
-            border-radius: 5px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-size: 1rem;
             box-shadow: none;
         }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
         .btn-custom {
             background-color: #007bff;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .btn-custom:hover {
             background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        .btn-custom:active {
+            transform: translateY(1px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer a {
+            color: #007bff;
             text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .btn-custom {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Registration Form</h1>
+    <h1>Student Registration Form</h1>
 
     <form action="register" method="post">
         <!-- Student Name -->
@@ -75,11 +134,16 @@
         </div>
 
         <!-- Submit Button -->
-        <div class="form-group text-center">
+        <div class="form-group">
             <button type="submit" class="btn btn-custom">Submit</button>
         </div>
     </form>
 </div>
+
+<footer>
+    <p>&copy; 2025 Shubham Ghongade. All rights reserved.</p>
+    <p>Designed by <a href="https://github.com/shubham-0211" target="_blank">Shubham Ghongade</a></p>
+</footer>
 
 <!-- Bootstrap JS (optional, for other functionalities) -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIKb+1klmje2bGZlSg3mVn59P4xV4zvLqzF8m8l9XM9DCCd0wJqS5" crossorigin="anonymous"></script>

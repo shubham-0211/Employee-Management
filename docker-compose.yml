@@ -1,0 +1,27 @@
+version: "3"
+services:
+  application:
+    image: shubhamghongade/employee-management
+    ports:
+      - "8080:8080" # Ensure the correct port mapping
+    networks:
+      springboot-db-net: {} # Correctly define the network as a mapping
+    depends_on:
+      - mysqldb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/shubham
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    volumes:
+      - /data/springboot-app:/app
+  mysqldb:
+    image: mysql:8.0 # Use a specific version for compatibility
+    networks:
+      springboot-db-net: {} # Correctly define the network as a mapping
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=shubham
+    volumes:
+      - /data/mysql:/var/lib/mysql
+networks:
+  springboot-db-net: {} # Define the network properly as a mapping
