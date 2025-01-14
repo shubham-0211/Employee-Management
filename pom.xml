@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sr</groupId>
-	<artifactId>employee-management</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>student-management</artifactId>
+	<version>0.0.1-RELEASE</version>
 	<packaging>war</packaging>
 	<name>employee-management</name>
 	<description>Demo project for Spring Boot</description>
